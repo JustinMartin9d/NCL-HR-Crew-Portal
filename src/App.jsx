@@ -39,6 +39,220 @@ const CONTRACT_REASONS = [
 
 const REQUEST_STATUSES = ["New","Approved","Done","Denied"];
 
+const PORT_ARRIVAL_DOCS = [
+  { name: "Abu Dhabi, United Arab Emirates", file: "Arrival into Abu Dhabi, United Arab Emirates.doc" },
+  { name: "Alesund, Norway", file: "Arrival into Alesund, Norway.doc" },
+  { name: "Amsterdam", file: "Arrival into Amsterdam.doc" },
+  { name: "Anchorage, Alaska — Crown Plaza (Seward)", file: "Arrival into Anchorage AK Seward - Crown Plaza.doc" },
+  { name: "Anchorage, Alaska — Fairfield Inn (Seward)", file: "Arrival into Anchorage AK Seward - Fairfield Inn.doc" },
+  { name: "Anchorage, Alaska — Motel 6 (Seward)", file: "Arrival into Anchorage AK Seward - Motel 6.doc" },
+  { name: "Anchorage, Alaska — Plaza SS Explorer (Seward)", file: "Arrival into Anchorage AK Seward-Plaza SS Explorer.doc" },
+  { name: "Anchorage, Alaska — Joining in Whittier", file: "Arrival into Anchorage, Alaska - Joining in Whittier Alaska.docx" },
+  { name: "Auckland, New Zealand — Heartland Hotel", file: "Arrival into Auckland New Zealand, Heartland Hotel.doc" },
+  { name: "Baltimore — Officers and Crew", file: "Arrival into Baltimore - Officers and Crew.doc" },
+  { name: "Barcelona, Spain — Innside by Melia", file: "Arrival into Barcelona, Spain - Innside by Melia Barcelona Aeropuerto.docx" },
+  { name: "Benoa (Bali), Indonesia", file: "Arrival into Benoa (Bali), Indonesia.doc" },
+  { name: "Bergen, Norway", file: "Arrival into Bergen Norway.doc" },
+  { name: "Bermuda", file: "Arrival into Bermuda.doc" },
+  { name: "Bilbao, Spain", file: "Arrival into Bilbao, Spain.doc" },
+  { name: "Bodrum, Turkey", file: "Arrival into Bodrum, Turkey.doc" },
+  { name: "Bordeaux, France", file: "Arrival into Bordeaux, France.docx" },
+  { name: "Boston — JWL & BWY", file: "Arrival into Boston JWL & BWY.docx" },
+  { name: "Boston — Officers and Crew", file: "Arrival into Boston Officers and Crew.doc" },
+  { name: "Bremen — N. Joy", file: "Arrival into Bremen - N. Joy.doc" },
+  { name: "Brest, France (Dry Dock)", file: "Arrival into Brest, France (Dry Dock).doc" },
+  { name: "Bridgetown, Barbados", file: "Arrival into Bridgetown Barbados.pdf" },
+  { name: "Brisbane, Australia", file: "Arrival into Brisbane, Australia.doc" },
+  { name: "Buenos Aires, Argentina", file: "Arrival into Buenos Aires, Argentina.doc" },
+  { name: "Busan, South Korea", file: "Arrival into Busan South Korea.doc" },
+  { name: "Cadiz, Spain", file: "Arrival into Cadiz, Spain.doc" },
+  { name: "Cairns, Australia", file: "Arrival into Cairns, Australia.docx" },
+  { name: "Callao, Peru", file: "Arrival into Callao, Peru.doc" },
+  { name: "Cannes, France", file: "Arrival into Cannes, France.doc" },
+  { name: "Cape Town, South Africa", file: "Arrival into Cape Town, South Africa.doc" },
+  { name: "Cartagena, Colombia", file: "Arrival into Cartagena, Colombia.doc" },
+  { name: "Civitavecchia, Italy — Holiday Inn Rome EUR (2026)", file: "Arrival into Civitavecchia Italy  - HOLIDAY INN ROME EUR PARCO DEI MEDICI- Effective April 16 2026.docx" },
+  { name: "Cobh, Ireland — Hotel Cork", file: "Arrival into Cobh Ireland for Hotel Cork.doc" },
+  { name: "Cobh, Ireland — Hotel Dublin", file: "Arrival into Cobh Ireland for Hotel Dublin.doc" },
+  { name: "Colon, Panama", file: "Arrival into Colon, Panama.doc" },
+  { name: "Copenhagen — Officers and Crew", file: "Arrival into Copenhagen - Officers and Crew.doc" },
+  { name: "Darwin, Australia", file: "Arrival into Darwin, Australia.doc" },
+  { name: "Doha, Qatar", file: "Arrival into Doha, Qatar.doc" },
+  { name: "Dubai, UAE", file: "Arrival into Dubai.doc" },
+  { name: "Dublin, Ireland", file: "Arrival into Dublin, Ireland.docx" },
+  { name: "Dubrovnik — Officers and Crew", file: "Arrival into Dubrovnik - Officers and Crew..doc" },
+  { name: "Durban, South Africa", file: "Arrival into Durban, South Africa.doc" },
+  { name: "Dry Dock — Southampton", file: "Dry Dock - Southampton.doc" },
+  { name: "Galveston, Texas (2026)", file: "Arrival into Galveston, Texas  2026.pdf" },
+  { name: "Gibraltar", file: "Arrival into Gibraltar.doc" },
+  { name: "Haifa, Israel", file: "Arrival into Haifa, Israel.doc" },
+  { name: "Hamburg, Germany", file: "Arrival into Hamburg, Germany.doc" },
+  { name: "Helsinki, Finland", file: "Arrival into Helsinki, Finland.doc" },
+  { name: "Hilo, Hawaii", file: "Arrival into Hilo Hawaii  - Upd 7.21.docx" },
+  { name: "Hong Kong — Regala Skycity Hotel", file: "Arrival into Hong Kong, China -  Regala Skycity Hotel.docx" },
+  { name: "Honolulu — Best Western Plaza Hotel", file: "Arrival into Honolulu - Best Western Plaza Hotel - Upd7.21.docx" },
+  { name: "Honolulu — Officers (Ala Moana Hotel)", file: "Arrival into Honolulu - Officers (Ala Moana Hotel).docx" },
+  { name: "Honolulu — Officers (Aston)", file: "Arrival into Honolulu Hawaii -Officers (Aston)  - UPDATE 1.27.26.docx" },
+  { name: "Honolulu — Officers (Luxury Suites)", file: "Arrival into Honolulu - Officers (Luxury Suites) - Upd 7.21.docx" },
+  { name: "Honolulu — The Ambassador Hotel of Waikiki", file: "Arrival into Honolulu - The Ambassador Hotel of Waikiki Tapestry Collection by Hilton - Upd 7.21.docx" },
+  { name: "Houston — Officers & Crew", file: "Arrival into Houston - Officers & Crew.doc" },
+  { name: "Ijmuiden, Netherlands", file: "Arrival into Ijmuiden, Netherlands.docx" },
+  { name: "Incheon, South Korea", file: "Arrival into Incheon, South Korea.doc" },
+  { name: "Invergordon, United Kingdom", file: "Arrival into Invergordon, United Kingdom.doc" },
+  { name: "Istanbul, Turkey", file: "Arrival into Istanbul, Turkey.docx" },
+  { name: "Jacksonville, Florida", file: "Arrival into Jacksonville, Florida.docx" },
+  { name: "Juneau, Alaska", file: "Arrival into Juneau, Alaska.doc" },
+  { name: "Keelung, Taiwan", file: "Arrival into Keelung, Taiwan.doc" },
+  { name: "Ketchikan, Alaska — Officers & Crew", file: "Arrival into Ketchikan Alaska - Officers  Crew.docx" },
+  { name: "Kiel, Germany", file: "Arrival into Kiel, Germany.docx" },
+  { name: "Kotor, Montenegro", file: "Arrival into Kotor, Montenegro.doc" },
+  { name: "Kristiansund, Norway", file: "Arrival into Kristiansund, Norway.doc" },
+  { name: "Kusadasi, Turkey", file: "Arrival into Kusadasi - Turkey.doc" },
+  { name: "La Romana, Dominican Republic", file: "Arrival into La Romana, Dominican Republic.doc" },
+  { name: "Laem Chabang, Thailand", file: "Arrival into Laem Chabang, Thailand.doc" },
+  { name: "Las Palmas, Spain", file: "Arrival into Las Palmas, Spain.doc" },
+  { name: "Lautoka, Fiji", file: "Arrival into Lautoka, Fiji.docx" },
+  { name: "Le Havre, France", file: "Arrival into Le  Havre, France.docx" },
+  { name: "Le Havre, France (Updated March 2026)", file: "Arrival into Le Havre France - upd 3.2.26.docx" },
+  { name: "Le Havre, France (Dry Dock)", file: "Arrival into Le Havre, France (Dry Dock).doc" },
+  { name: "Limassol, Cyprus", file: "Arrival into Limassol, Cyprus.doc" },
+  { name: "Lisbon, Portugal", file: "Arrival into Lisbon, Portugal.doc" },
+  { name: "Livorno, Italy", file: "Arrival into Livorno, Italy.doc" },
+  { name: "Los Angeles (2026)", file: "Arrival into Los Angeles - 2026.doc" },
+  { name: "Manila, Philippines", file: "Arrival into Manila,Philippines.doc" },
+  { name: "Marseille, France", file: "Arrival into Marseille France.doc" },
+  { name: "Marseille, France (Dry Dock)", file: "Arrival into Marseille, France (Dry Dock).doc" },
+  { name: "Melbourne, Australia", file: "Arrival into Melbourne, Australia.doc" },
+  { name: "Messina, Italy", file: "Arrival into Messina, Italy.doc" },
+  { name: "Miami (2026)", file: "Arrival into Miami 2026 - Upd 1.26.26.docx" },
+  { name: "Monte Carlo, Monaco", file: "Arrival into Monte Carlo, Monaco.doc" },
+  { name: "Montevideo, Uruguay", file: "Arrival into Montevideo, Uruguay.doc" },
+  { name: "Montreal, Canada", file: "Arrival into Montreal, Canada.doc" },
+  { name: "Mumbai, India", file: "Arrival into Mumbai, India.doc" },
+  { name: "Naha, Japan", file: "Arrival into Naha, Japan.doc" },
+  { name: "Naples, Italy", file: "Arrival into Naples, Italy.doc" },
+  { name: "New Orleans — Officers and Crew", file: "Arrival into New Orleans - Officers and Crew.doc" },
+  { name: "New York", file: "Arrival into New York.pdf" },
+  { name: "Ocho Rios, Jamaica", file: "Arrival into Ocho Rios, Jamaica.doc" },
+  { name: "Oranjestad, Aruba", file: "Arrival Into Oranjestad, Aruba.doc" },
+  { name: "Osaka, Japan", file: "Arrival into Osaka, Japan.doc" },
+  { name: "Oslo, Norway", file: "Arrival into Oslo, Norway.doc" },
+  { name: "Panama City, Panama", file: "Arrival into Panama City, Panama.doc" },
+  { name: "Papeete, French Polynesia", file: "Arrival into Papeete, French Polynesia.doc" },
+  { name: "Philadelphia, Pennsylvania", file: "Arrival into Philadelphia, Pennsylvania.docx" },
+  { name: "Philipsburg, St. Maarten", file: "Arrival into Philipsburg, St. Maarten.doc" },
+  { name: "Piraeus, Greece", file: "Arrival into Piraeus, Greece.doc" },
+  { name: "Ponta Delgada, Portugal", file: "Arrival into Ponta Delgada, Portugal.doc" },
+  { name: "Port Canaveral — Orlando, FL", file: "Arrival into Port Canaveral - Orlando, FL.doc" },
+  { name: "Port Elizabeth, South Africa", file: "Arrival into Port Elizabeth South Africa.docx" },
+  { name: "Port Klang, Malaysia", file: "Arrival into Port Klang, Malaysia.doc" },
+  { name: "Port Louis, Mauritius", file: "Arrival into Port Louis, Mauritius.doc" },
+  { name: "Puerto Madryn, Argentina", file: "Arrival into Puerto Madryn, Argentina.doc" },
+  { name: "Puntarenas, Costa Rica", file: "Arrival into Puntarenas, Costa Rica.doc" },
+  { name: "Quebec City, Canada", file: "Arrival into Quebec City.doc" },
+  { name: "Ravenna, Italy", file: "Arrival into Ravenna, Italy.doc" },
+  { name: "Reykjavik, Iceland", file: "Arrival into Reykjavik, Iceland.doc" },
+  { name: "Reykjavik, Iceland — Prima Crew", file: "Arrival into Reykjavik, Iceland - PRIMA CREW.docx" },
+  { name: "Rio de Janeiro, Brazil", file: "Arrival into Rio de Janeiro Brazil.docx" },
+  { name: "Roatan, Honduras", file: "Arrival into Roatan, Honduras.doc" },
+  { name: "Rotterdam, Netherlands", file: "Arrival into Rotterdam, Netherlands.doc" },
+  { name: "San Antonio, Chile", file: "Arrival into San Antonio, Chile.doc" },
+  { name: "San Diego — The Little Italy Hotel", file: "Arrival into San Diego - The Little Italy Hotel in Downtown San Diego.docx" },
+  { name: "San Juan, Puerto Rico — Viva", file: "Arrival into San Juan Puerto Rico, VIVA.docx" },
+  { name: "San Juan, Puerto Rico", file: "Arrival into San Juan, PR.docx" },
+  { name: "Seattle, Washington", file: "Arrival Letter into Seattle, Washington.docx" },
+  { name: "Shanghai, China", file: "Arrival into Shanghai, China.doc" },
+  { name: "Singapore", file: "Arrival into Singapore.docx" },
+  { name: "Siracusa, Italy", file: "Arrival into Siracusa, Italy.doc" },
+  { name: "Southampton, UK — Hilton Heathrow Terminal 4", file: "Arrival into Southampton, UK - HIlton London Heathrow Airport Terminal 4 Hotel.docx" },
+  { name: "Split — Officers & Crew", file: "Arrival into Split - Officers & Crew.doc" },
+  { name: "St. John's, Antigua and Barbuda", file: "Arrival into St John's Antigua and Barbuda.doc" },
+  { name: "St. Thomas, USVI", file: "Arrival into St. Thomas, USVI.doc" },
+  { name: "Stockholm, Sweden", file: "Arrival into Stockholm, Sweden.docx" },
+  { name: "Sydney, Australia (2026)", file: "Arrival into Sydney Australia 2026.doc" },
+  { name: "Tallinn, Estonia", file: "Arrival into Tallinn, Estonia.doc" },
+  { name: "Tampa — Officers and Crew", file: "Arrival into Tampa - Officers and Crew.doc" },
+  { name: "Tarragona, Spain", file: "Arrival into Tarragona, Spain.doc" },
+  { name: "Tianjin, China", file: "Arrival into Tianjin, China.doc" },
+  { name: "Tilbury, United Kingdom", file: "Arrival into Tilbury, United Kingdom.docx" },
+  { name: "Tokyo, Japan", file: "Arrival into Tokyo, Japan.doc" },
+  { name: "Trieste, Italy", file: "Arrival into Trieste, Itally.doc" },
+  { name: "Tromso, Norway", file: "Arrival into Tromso, Norway.doc" },
+  { name: "Valencia, Spain", file: "Arrival into Valencia, Spain.doc" },
+  { name: "Valletta, Malta", file: "Arrival into Valleta, Malta.doc" },
+  { name: "Valparaiso, Chile", file: "Arrival into Valparaiso, Chile.doc" },
+  { name: "Vancouver — Officers & Crew", file: "Arrival into Vancouver - Officers & Crew.doc" },
+  { name: "Venice, Italy", file: "Arrival into Venice, Italy.doc" },
+  { name: "Venice, Italy — Luna", file: "Arrival into Venice, Italy - LUNA.docx" },
+  { name: "Venice, Italy — Luna Newbuild", file: "Arrival into Venice, Italy - Luna Newbuild.pdf" },
+  { name: "Victoria, Canada (Dry Dock)", file: "Arrival into Victoria, Canada (Dry Dock).doc" },
+  { name: "Willemstad, Curacao", file: "Arrival into Willemstad, Curacao.docx" },
+  { name: "Yokohama, Japan", file: "Arrival into Yokohama, Japan.doc" },
+  { name: "Zeebrugge, Belgium", file: "Arrival into Zeebrugge, Belgium.docx" },
+].sort((a, b) => a.name.localeCompare(b.name));
+  "Arrival into Alesund, Norway",
+  "Arrival into Amsterdam",
+  "Arrival into Anchorage AK Seward - Crown Plaza",
+  "Arrival into Anchorage AK Seward - Fairfield Inn",
+  "Arrival into Anchorage AK Seward - Motel 6",
+  "Arrival into Anchorage AK Seward-Plaza SS Explorer",
+  "Arrival into Anchorage, Alaska - Joining in Whittier Alaska",
+  "Arrival into Auckland New Zealand, Heartland Hotel",
+  "Arrival into Baltimore - Officers and Crew",
+  "Arrival into Barcelona, Spain - Innside by Melia Barcelona Aeropuerto",
+  "Arrival into Benoa (Bali), Indonesia",
+  "Arrival into Bergen Norway",
+  "Arrival into Bermuda",
+  "Arrival into Bilbao, Spain",
+  "Arrival into Bodrum, Turkey",
+  "Arrival into Bordeaux, France",
+  "Arrival into Boston JWL & BWY",
+  "Arrival into Boston Officers and Crew",
+  "Arrival into Bremen - N. Joy",
+  "Arrival into Brest, France (Dry Dock)",
+  "Arrival into Bridgetown Barbados",
+  "Arrival into Brisbane, Australia",
+  "Arrival into Buenos Aires, Argentina",
+  "Arrival into Busan South Korea",
+  "Arrival into Cadiz, Spain",
+  "Arrival into Cairns, Australia",
+  "Arrival into Callao, Peru",
+  "Arrival into Cannes, France",
+  "Arrival into Cape Town, South Africa",
+  "Arrival into Cartagena, Colombia",
+  "Arrival into Civitavecchia Italy - HOLIDAY INN ROME EUR PARCO DEI MEDICI - Effective April 16 2026",
+  "Arrival into Cobh Ireland for Hotel Cork",
+  "Arrival into Cobh Ireland for Hotel Dublin",
+  "Arrival into Colon, Panama",
+  "Arrival into Copenhagen - Officers and Crew",
+  "Arrival into Darwin, Australia",
+  "Arrival into Doha, Qatar",
+  "Arrival into Dubai",
+  "Arrival into Dublin, Ireland",
+  "Arrival into Dubrovnik - Officers and Crew",
+  "Arrival into Durban, South Africa",
+  "Arrival into Galveston, Texas 2026",
+  "Arrival into Gibraltar",
+  "Arrival into Haifa, Israel",
+  "Arrival into Hamburg, Germany",
+  "Arrival into Helsinki, Finland",
+  "Arrival into Hilo Hawaii",
+  "Arrival into Hong Kong, China - Regala Skycity Hotel",
+  "Arrival into Honolulu - Best Western Plaza Hotel",
+  "Arrival into Honolulu - Officers (Ala Moana Hotel)",
+  "Arrival into Honolulu - Officers (Aston)",
+  "Arrival into Honolulu - Officers (Luxury Suites)",
+  "Arrival into Honolulu - The Ambassador Hotel of Waikiki Tapestry Collection by Hilton",
+  "Arrival into Houston - Officers & Crew",
+  "Arrival into Ijmuiden, Netherlands",
+  "Arrival into Incheon, South Korea",
+  "Arrival into Invergordon, United Kingdom",
+  "Arrival into Istanbul, Turkey",
+  "Arrival into Jacksonville, Florida",
+  "Arrival into Juneau, Alaska",
+  "Arrival into Keelung, Taiwan",
+  "Arrival into Ketchikan Alaska - Officers & Crew",
+
 const REQ_STATUS_META = {
   New:      { bg:"#EBF5F5", text:"#00484F" },
   Approved: { bg:"#EAF4F0", text:"#1A6645" },
@@ -118,6 +332,9 @@ const Ic = {
   warn:     <svg viewBox="0 0 16 16" fill="currentColor" style={{width:12,height:12,flexShrink:0}}><path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm0 3.5a.75.75 0 0 1 .75.75v3a.75.75 0 0 1-1.5 0v-3A.75.75 0 0 1 8 4.5zm0 6.5a.875.875 0 1 1 0-1.75A.875.875 0 0 1 8 11z"/></svg>,
   ship:     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" style={{width:22,height:22}}><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2"/><path d="M22 20l-2-10H4L2 20"/><path d="M12 2v8"/><path d="M8 10V6h8v4"/></svg>,
   refresh:  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" style={{width:15,height:15}}><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>,
+  map:      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" style={{width:28,height:28}}><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>,
+  search2:  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" style={{width:16,height:16}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>,
+  docfile:  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" style={{width:16,height:16}}><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>,
 };
 
 // ════════════════════════════════════════════════════════════
@@ -198,7 +415,7 @@ body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--black);-w
   margin-bottom:10px;text-align:center;letter-spacing:.6px;text-transform:uppercase;line-height:1.3}
 .landing-sub{color:var(--muted);font-size:13px;margin-bottom:36px;text-align:center;
   max-width:360px;font-weight:300;line-height:1.7}
-.landing-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;max-width:560px}
+.landing-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;max-width:820px}
 .landing-card{background:var(--white);border:1px solid var(--border);border-radius:0;
   padding:28px 22px;cursor:pointer;transition:all .2s;text-align:center;
   box-shadow:var(--sh);position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent;
@@ -448,6 +665,32 @@ tbody td{padding:10px 13px;vertical-align:middle}
   color:var(--turq);cursor:pointer;transition:all .2s;letter-spacing:.4px;text-transform:uppercase}
 .refresh-btn:hover{background:var(--turq);color:var(--sand)}
 
+/* ── Port Arrival page ── */
+.arrival-search{width:100%;height:46px;padding:0 14px 0 42px;border:1px solid var(--border);
+  border-bottom:2px solid var(--border);border-radius:0;font-family:'Poppins',sans-serif;
+  font-size:14px;color:var(--black);background:var(--white);outline:none;
+  transition:border-color .2s;appearance:none;-webkit-appearance:none}
+.arrival-search:focus{border-bottom-color:var(--teal)}
+.arrival-search-wrap{position:relative;margin-bottom:16px}
+.arrival-search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  color:var(--muted);pointer-events:none}
+.arrival-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--border)}
+.arrival-item{display:flex;align-items:center;gap:12px;padding:13px 16px;
+  background:var(--white);border-bottom:1px solid var(--border);cursor:pointer;
+  transition:background .15s;text-decoration:none;color:var(--black);
+  font-size:13px;font-weight:400;-webkit-tap-highlight-color:transparent}
+.arrival-item:last-child{border-bottom:none}
+.arrival-item:hover{background:rgba(167,202,198,.12);color:var(--turq)}
+.arrival-item:hover .arrival-icon{color:var(--teal)}
+.arrival-icon{color:var(--muted);flex-shrink:0;transition:color .15s}
+.arrival-count{font-size:11px;color:var(--muted);margin-bottom:12px;
+  font-family:'Besley',serif;font-style:italic}
+.arrival-empty{text-align:center;padding:40px 20px;color:var(--muted);
+  font-family:'Besley',serif;font-style:italic;font-size:14px}
+.external-badge{display:inline-flex;align-items:center;gap:4px;font-size:9px;
+  font-weight:700;color:var(--teal);letter-spacing:.5px;text-transform:uppercase;
+  background:rgba(104,172,170,.12);padding:2px 7px;border-radius:0;margin-top:6px}
+
 /* ════ RESPONSIVE ════ */
 @media(max-width:768px){
   .stats-grid{grid-template-columns:1fr 1fr}
@@ -464,8 +707,7 @@ tbody td{padding:10px 13px;vertical-align:middle}
   .landing{padding:24px 12px 28px}
   .landing h1{font-size:17px}
   .landing-sub{font-size:12px;margin-bottom:20px}
-  .landing-cards{grid-template-columns:1fr;gap:10px;max-width:100%}
-  .landing-card{padding:16px;display:flex;flex-direction:row;text-align:left;align-items:center;gap:14px}
+  .landing-cards{grid-template-columns:1fr;gap:10px;max-width:100%}  .landing-card{padding:16px;display:flex;flex-direction:row;text-align:left;align-items:center;gap:14px}
   .landing-card-icon{width:44px;height:44px;margin:0;flex-shrink:0}
   .landing-card h3{font-size:12px;margin-bottom:3px}
   .landing-card p{font-size:11px;line-height:1.4}
@@ -605,6 +847,9 @@ export default function App() {
               isDemo={isDemo}
             />
           )}
+          {view === "arrival" && (
+            <PortArrivalPage onBack={() => setView("landing")} />
+          )}
           {view === "admin" && (
             <AdminDashboard
               reimbData={reimbData}
@@ -663,18 +908,37 @@ function LandingPage({ onSelect }) {
       <h1>Crew Services Portal</h1>
       <p className="landing-sub">Select a service below to get started. All submissions are reviewed by the Hotel Operations team.</p>
       <div className="landing-cards">
-        <div className="landing-card" onClick={() => onSelect("reimb")}>
+
+        {/* Reimbursement — opens Smartsheet externally */}
+        <a
+          href="https://app.smartsheet.com/b/form/f4255ed5c2bb44c68910cfd678a7380c"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="landing-card"
+          style={{textDecoration:"none"}}
+        >
           <div className="landing-card-icon">{Ic.receipt}</div>
           <h3>Reimbursement Request</h3>
           <p>Submit expense receipts for meals, travel, luggage, and other approved categories.</p>
-          <div className="arrow-hint">{Ic.arrow} Get started</div>
-        </div>
+          <div className="external-badge">↗ Opens in Smartsheet</div>
+        </a>
+
+        {/* Contract Request */}
         <div className="landing-card" onClick={() => onSelect("contract")}>
           <div className="landing-card-icon">{Ic.contract}</div>
           <h3>Contract Request</h3>
           <p>Request an extension or reduction to your current contract end date.</p>
           <div className="arrow-hint">{Ic.arrow} Get started</div>
         </div>
+
+        {/* Port Arrival Information */}
+        <div className="landing-card" onClick={() => onSelect("arrival")}>
+          <div className="landing-card-icon">{Ic.map}</div>
+          <h3>Port Arrival Information</h3>
+          <p>View arrival instructions and hotel information for ports worldwide.</p>
+          <div className="arrow-hint">{Ic.arrow} View documents</div>
+        </div>
+
       </div>
     </div>
   );
@@ -1086,6 +1350,85 @@ function ContractForm({ onSubmit, showToast, onBack, isDemo }) {
             {busy?"Submitting…":"Submit Request"}
           </button>
         </div>
+      </div>
+    </div>
+  );
+}
+
+// ════════════════════════════════════════════════════════════
+//  PORT ARRIVAL INFORMATION
+// ════════════════════════════════════════════════════════════
+function PortArrivalPage({ onBack }) {
+  const [query, setQuery] = useState("");
+
+  const filtered = PORT_ARRIVAL_DOCS.filter(doc =>
+    doc.name.toLowerCase().includes(query.toLowerCase())
+  );
+
+  const BASE_URL = "/arrival-docs/";
+
+  function getIcon(file) {
+    if (file.endsWith(".pdf")) return "PDF";
+    if (file.endsWith(".docx")) return "DOCX";
+    return "DOC";
+  }
+
+  function getBadgeStyle(file) {
+    if (file.endsWith(".pdf")) return { background:"rgba(192,57,43,.1)", color:"var(--red)" };
+    return { background:"rgba(0,72,79,.1)", color:"var(--turq)" };
+  }
+
+  return (
+    <div>
+      <div className="ph">
+        <h2>Port Arrival Information</h2>
+        <p>Search and select a port to view arrival instructions, hotel details, and transportation information.</p>
+      </div>
+
+      <div className="card">
+        <div className="arrival-search-wrap">
+          <span className="arrival-search-icon">{Ic.search2}</span>
+          <input
+            className="arrival-search"
+            placeholder="Search by port, city, or country…"
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            autoComplete="off"
+          />
+        </div>
+
+        <div className="arrival-count">
+          {filtered.length} document{filtered.length !== 1 ? "s" : ""} found
+        </div>
+
+        {filtered.length === 0 ? (
+          <div className="arrival-empty">No documents found for "{query}"</div>
+        ) : (
+          <div className="arrival-list">
+            {filtered.map(doc => (
+              <a
+                key={doc.file}
+                className="arrival-item"
+                href={BASE_URL + encodeURIComponent(doc.file)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="arrival-icon">{Ic.docfile}</span>
+                <span style={{flex:1}}>{doc.name}</span>
+                <span style={{
+                  fontSize:"9px", fontWeight:700, letterSpacing:".4px",
+                  padding:"2px 6px", borderRadius:0, marginRight:6,
+                  ...getBadgeStyle(doc.file)
+                }}>{getIcon(doc.file)}</span>
+                <span style={{color:"var(--muted)",fontSize:11}}>{Ic.arrow}</span>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div style={{marginTop:16}}>
+        <button className="btn btn-ghost" onClick={onBack}>{Ic.back} Back to Home</button>
       </div>
     </div>
   );
