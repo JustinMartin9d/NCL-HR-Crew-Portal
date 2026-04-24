@@ -1360,8 +1360,8 @@ function PortArrivalPage({ onBack }) {
                   ...getBadgeStyle()
                 }}>{getIcon()}</span>
                 <span style={{color:"var(--muted)",fontSize:11}}>{Ic.arrow}</span>
-// ════════════════════════════════════════════════════════════
-//  ADMIN DASHBOARD
+              </a>
+            ))}
           </div>
         )}
       </div>
